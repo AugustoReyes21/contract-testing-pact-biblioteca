@@ -1,0 +1,14 @@
+diff --git a/src/provider/app.ts b/src/provider/app.ts
+index 25aed77..c7c81b5 100644
+--- a/src/provider/app.ts
++++ b/src/provider/app.ts
+@@ -8,7 +8,8 @@ function toResponse(book: BookRecord) {
+     title: book.title,
+     author: book.author,
+     isbn: book.isbn,
+-    availableCopies: book.totalCopies - book.loanedCopies,
++    // CAMBIO INCOMPATIBLE: availableCopies se envia como texto en vez de numero
++    availableCopies: String(book.totalCopies - book.loanedCopies),
+   };
+ }
+ 
